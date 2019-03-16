@@ -1,3 +1,20 @@
+body {
+    background-image: url("../images/darkness.png");
+}
+
+.big-container {
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 800px;
+}
+
+.middle-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
 #title {
     margin: auto;
     font-size: 30px;
@@ -5,56 +22,60 @@
     height: 50px;
     padding-top: 25px;
     text-align: center;
-    margin-top: 10px;
     background-color: aqua;
+    font-family: 'Audiowide', cursive;
 }
 
 #instructions {
-    margin: auto;
-    margin-top: 10px;
     background-color: aquamarine;
     width: 750px;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    margin-left: 20px;
+    font-family: 'Poiret One', cursive;
+    font-size: 17px;
 }
 
 .score-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin: 20px;
 }
 
 #scoreboard {
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
-    width: 300px;
-    height: 100px;
+    width: 250px;
+    height: 115px;
     background-color: aqua;
     text-align: center;
-    margin: auto;
+    margin-top: 10px;
 }
 
 .score {
-    margin-left: ;
+    margin-left: 20px;
     font-size: 20px;
+    font-size: 28px;
     padding-top: 20px;
+    font-family: 'Teko', sans-serif;
 }
 
 #record {
     margin-top: 20px;
-    margin-bottom: 20px;
-    width: 200px;
-    background-color: aquamarine;
+    width: 250px;
+    height: 115px;
+    background-color: aqua;
     text-align: center;
     display: flex;
     flex-direction: row;
 }
 
 .wl {
-    margin-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-left: 50px;
+    font-size: 28px;
+    padding-top: 15px;
+    font-family: 'Teko', sans-serif;
+    
 }
 
 #crystals {
@@ -71,8 +92,13 @@
 
 #start {
     width: 100px;
-    height: 50px;
-    background-color: green;
+    height: 35px;
+    background-color: red;
     margin: auto;
+    text-align: center;
+    padding: 10px;
+    font-size: 30px;
+    margin-top: 10px;
+    font-family: 'Audiowide', cursive;
 }
 

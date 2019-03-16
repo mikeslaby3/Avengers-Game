@@ -28,10 +28,10 @@ $(document).ready(function() {
     function gameOver(isWin) {
         if (isWin === true) {
             console.log("You win: " + crystalTotal);
-            $('#game-over-message').text('You win!');
+            alert('You win!')
         } else {
             console.log("You lose: " + 'total ' + crystalTotal + ' target ' + targetNumber);
-            $('#game-over-message').text('You lose :(');
+            alert('You Lose :(')
         }
         isGameStarted = false
         $('#start').show();
