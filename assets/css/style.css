@@ -1,0 +1,78 @@
+#title {
+    margin: auto;
+    font-size: 30px;
+    width: 500px;
+    height: 50px;
+    padding-top: 25px;
+    text-align: center;
+    margin-top: 10px;
+    background-color: aqua;
+}
+
+#instructions {
+    margin: auto;
+    margin-top: 10px;
+    background-color: aquamarine;
+    width: 750px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    width: 300px;
+    height: 100px;
+    background-color: aqua;
+    text-align: center;
+    margin: auto;
+}
+
+.score {
+    margin-left: ;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+#record {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    background-color: aquamarine;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.wl {
+    margin-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#crystals {
+    margin: auto;
+    margin-top: 20px;
+    width: 520px;
+    margin-top: 10px;
+}
+
+#blue-crystal-image {
+    width: 110px;
+    height: 160px;
+}
+
+#start {
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    margin: auto;
+}
+
