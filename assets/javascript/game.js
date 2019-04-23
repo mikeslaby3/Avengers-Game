@@ -1,88 +1,111 @@
-$(document).ready(function() {
+const HIDE = true;
+const SHOW = false;
 
-    var targetNumber = '';
-    var blueCrystalNumber = ''; 
-    var greenCrystalNumber = ''; 
-    var redCrystalNumber = '';
-    var purpleCrystalNumber = '';
-    var crystalTotal = '';
-    var wins = 0;
-    var losses = 0;
-    var isGameStarted
+var thanosHealth = '';
+var captainAmericaDamage = '';
+var ironmanDamage = '';
+var thorDamage = '';
+var hulkDamage = '';
+var damageTotal = '';
+var wins = 0;
+var losses = 0;
+var isGameStarted;
 
-    function initializeVariables() {
-        targetNumber = Math.floor((Math.random() * 101) + 19);
-        
-        blueCrystalNumber = Math.floor((Math.random() * 12) + 1);
-        greenCrystalNumber = Math.floor((Math.random() * 12) + 1);
-        redCrystalNumber = Math.floor((Math.random() * 12) + 1);
-        purpleCrystalNumber = Math.floor((Math.random() * 12) + 1);
-        console.log("Target " + targetNumber + " b: " + blueCrystalNumber + " g: " + greenCrystalNumber + " r: " + redCrystalNumber + " p: " + purpleCrystalNumber); 
-        
-        crystalTotal = 0;
+function setVisibility(id, hide) {
+    if (hide === true) {
+        $(id).hide();
+    } else {
+        $(id).show();
+    }
+}
 
-        $('#target-score-text').text(targetNumber);
-        $('#total-score-text').text(crystalTotal);
-    };
+function initializeVariables() {
+    thanosHealth = Math.floor((Math.random() * 101) + 19);
 
-    function gameOver(isWin) {
-        if (isWin === true) {
-            console.log("You win: " + crystalTotal);
-            alert('You win!')
+    captainAmericaDamage = Math.floor((Math.random() * 12) + 1);
+    ironmanDamage = Math.floor((Math.random() * 12) + 1);
+    thorDamage = Math.floor((Math.random() * 12) + 1);
+    hulkDamage = Math.floor((Math.random() * 12) + 1);
+
+    damageTotal = 0;
+
+    $('#thanos-health-text').text(thanosHealth);
+    $('#total-damage-text').text(damageTotal);
+};
+
+function gameOver(isWin) {
+    if (isWin === true) {
+        console.log("You win: " + damageTotal);
+        alert('You win!')
+    } else {
+        console.log("You lose: " + 'total ' + damageTotal + ' target ' + thanosHealth);
+        alert('You Lose :(')
+    }
+    isGameStarted = false
+    setVisibility("#start", SHOW);
+    setVisibility("#game-over-message", SHOW);
+}
+
+function addDamageValueToTotal(damageValue) {
+    if (isGameStarted === true) {
+        damageTotal += damageValue;
+        if (damageTotal === thanosHealth) {
+            wins++;
+            $('#wins-text').text(wins);
+            gameOver(true);
+        } else if (damageTotal > thanosHealth) {
+            losses++;
+            $('#losses-text').text(losses);
+            gameOver(false);
         } else {
-            console.log("You lose: " + 'total ' + crystalTotal + ' target ' + targetNumber);
-            alert('You Lose :(')
+            console.log("Still going! " + 'total ' + damageTotal + ' target ' + thanosHealth);
         }
-        isGameStarted = false
-        $('#start').show();
-        $('#game-over-message').show();
-    }
 
-    function addCrystalValueToTotal(crystalNumber) {
-        if (isGameStarted === true) {
-            crystalTotal += crystalNumber;
-            if (crystalTotal === targetNumber) {
-                wins++;
-                $('#wins-text').text(wins);
-                gameOver(true);
-            } else if (crystalTotal > targetNumber) {
-                losses++;
-                $('#losses-text').text(losses);
-                gameOver(false);
-            } else {
-                console.log("Still going! " + 'total ' + crystalTotal + ' target ' + targetNumber);
-            }
-    
-            $('#total-score-text').text(crystalTotal);
-        }
+        $('#total-damage-text').text(damageTotal);
     }
+}
 
-    $('#start').on('click', function () {
+$(document).ready(function () {
+
+    setVisibility('#instructions-menu', HIDE);
+    setVisibility('#game-screen', HIDE);
+
+    $('#instructions-button').on('click', function () {
+        setVisibility('#game-menu', HIDE);
+        setVisibility('#instructions-menu', SHOW);
+    });
+
+    $('#back-button').on('click', function () {
+        setVisibility('#game-menu', SHOW);
+        setVisibility('#instructions-menu', HIDE);
+    });
+
+    $('#start-button').on('click', function () {
         initializeVariables();
-        $('#start').hide();
-        $('#game-over-message').hide();
+        setVisibility("#game-menu", HIDE);
+        setVisibility("#game-screen", SHOW);
         isGameStarted = true;
     });
 
-    $('#blue-crystal-image').on('click', function() {
-        addCrystalValueToTotal(blueCrystalNumber);
+    $('#captain-america-image').on('click', function () {
+        addDamageValueToTotal(captainAmericaDamage);
     });
 
-    $('#green-crystal-image').on('click', function() {
-        addCrystalValueToTotal(greenCrystalNumber);
+    $('#iron-man-image').on('click', function () {
+        addDamageValueToTotal(ironmanDamage);
     });
 
-    $('#red-crystal-image').on('click', function() {
-        addCrystalValueToTotal(redCrystalNumber);
+    $('#thor-image').on('click', function () {
+        addDamageValueToTotal(thorDamage);
     });
 
-    $('#purple-crystal-image').on('click', function() {
-        addCrystalValueToTotal(purpleCrystalNumber);
+    $('#hulk-image').on('click', function () {
+        addDamageValueToTotal(hulkDamage);
     });
 
 });
 
 
 
- 
+
 

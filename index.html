@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,75 +8,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Audiowide|Poiret+One|Teko" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Poiret+One|Teko|Orbitron" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js"></script>
 </head>
+
 <body>
+
     <div class="big-container">
-        <div id="title">
-            <h1>Crystal Collector</h1>
-        </div> 
-        
-        <div class="middle-container">
 
-            <div id="instructions">
-                <p>You will be given a random number at the start of the game.</p>
-                <br>
-                <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-                <br>
-                <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
-                <br>
-                <p>The value of each crystal is hidden from you until you click on it.</p>
-                <br>
-                <p>Each time the game starts, the game will change the values of each crystal.</p>
+        <div class="menu" id="game-menu">
+            <h1 class="menu-header">Avengers Infinity Stone Challenge</h1>
+            <img id="avengers-logo" src="./assets/images/avengers-logo.png" alt="avengers-logo">
+            <div id="buttons-container">
+                <button class="menu-button" id="instructions-button">Instructions</button>
+                <button class="menu-button" id="start-button">Start</b>
             </div>
-            <div id="random-number-text"></div>
+        </div>
+
+        <div class="menu" id="instructions-menu">
+            <h1 class="menu-header">Help the Avengers defeat Thanos!</h1>
+            <div id="instructions-body">
+                <img id="nick-fury" src="./assets/images/nick-fury.png" alt="nick-fury">
+                <div id="instructions-text-container">
+                    <img id="computer-background" src="./assets/images/computer-screen.png" alt="computer-background">
+                    <div id="instructions-text">
+                        <p>With all five inifinity stones in his possession, Thanos seems unbeatable. However, hope is not lost!</p>
+                        <br>
+                        <p>In order to beat him and return the stones back into to the right hands, we must use all the heros left to attack him from all angles.</p>
+                        <br>
+                        <p>The four remaining Avengers have the capability of inflicting different amounts of damage. The only way to reclaim each stone, is to inflict the exact amount of damage as Thanos has health.</p>
+                        <br>
+                        <p>If you do so, you get one stone back. His health will then reset to a new number. If you inflict too much damage, he'll use the Time Stone to go back to full health.</p>
+                        <br>
+                        <p>Once we reclaim all five stones, Thanos will finally be defeated. As the commander, it's YOUR responsibility to tell each Avenger when to attack.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="menu-button" id="back-button">Back</button>
+        </div>
+
+        <div id="game-screen">
+
+            <div id="scoreboard">
+                <div class="score">
+                    <p id="thanos-health">Thanos Health:</p>
+                    <p class="number" id="thanos-health-text">0</p>
+                </div>
+                <div class="score">
+                    <p id="damage-dealt">Damage Dealt:</p>
+                    <p class="number" id="total-damage-text">0</p>
+                </div>
+                <div class="score">
+                    <p id="stones-collected">Stones Collected:</p>
+                    <p class="number" id="wins-text">0</p>
+                </div>
+                <div class="score">
+                    <p id="losses">Losses:</p>
+                    <p class="number" id="losses-text">0</p>
+                </div>
+            </div>
             
-            <div class="score-container">
-    
-                <div id="scoreboard">
-                    <div class="score">
-                        <p>Target Score</p>
-                        <br>
-                        <p id="target-score-text">0</p>
-                    </div>
-                    <div class="score">
-                        <p>Your Score</p>
-                        <br>
-                        <p id="total-score-text">0</p> 
-                    </div>
+            <div id="avenger-container">
+                <div id="avenger-row">
+                    <img class="hero-image" id="captain-america-image" src="assets/images/captain-america.png" alt="captain-america">
+                    <img class="hero-image" id="iron-man-image" src="assets/images/ironman.png" alt="iron-man">
+                    <img class="hero-image" id="thor-image" src="assets/images/thor.png" alt="thor">
+                    <img class="hero-image" id="hulk-image" src="assets/images/hulk.png" alt="hulk">
                 </div>
-    
-                <div id="record">
-                    <div class="wl">
-                        <p>Wins</p>
-                        <br>
-                        <p id="wins-text">0</p>
-                    </div>
-                    <div class="wl">
-                        <p>Losses</p>
-                        <br>
-                        <p id="losses-text">0</p>
-                    </div>
-                </div>
-    
+                <img id="thanos-image" src="assets/images/thanos.png" alt="thanos">
             </div>
 
         </div>
-        
-        <div id="start">Start</div>
 
-        <div id="game-over-message"></div>
-
-        <div id="crystals">
-            <img id="blue-crystal-image" src="assets/images/blue-crystal.jpg" alt="blue-crystal">
-            <img id="green-crystal-image" src="assets/images/green-crystal.jpg" alt="green-crystal">
-            <img id="red-crystal-image" src="assets/images/red-crystal.jpg" alt="red-crystal">
-            <img id="purple-crystal-image" src="assets/images/purple-crystal.jpg" alt="purple-crystal">
-        </div>
 
     </div>
-    
+
 </body>
+
 </html>

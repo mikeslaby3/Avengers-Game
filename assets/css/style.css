@@ -1,3 +1,7 @@
+/* =======================*/
+/* Containers + Body */
+/* =======================*/
+
 body {
     background-image: url("../images/darkness.png");
 }
@@ -9,96 +13,174 @@ body {
     width: 800px;
 }
 
-.middle-container {
+#game-screen {
     margin-top: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
-#title {
+/* ===============*/
+/* Start Menu */
+/* ===============*/
+
+.menu {
+    background-image: url("../images/dark-triangles.png");
+    border-style: solid;
+    border-width: 5px;
+    border-color: #39ff14;
+    height: 500px;
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
     margin: auto;
-    font-size: 30px;
+}
+
+.menu-header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #999a98;
+    font-size: 40px;
     width: 500px;
     height: 50px;
-    padding-top: 25px;
     text-align: center;
-    background-color: aqua;
     font-family: 'Audiowide', cursive;
 }
 
-#instructions {
-    background-color: aquamarine;
-    width: 750px;
-    text-align: center;
-    padding: 20px;
-    margin-left: 20px;
-    font-family: 'Poiret One', cursive;
-    font-size: 17px;
+#avengers-logo {
+    height: 300px;
+    width: 300px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
-.score-container {
+#buttons-container {
+    width: 500px;
     display: flex;
-    flex-direction: column;
-    margin: 20px;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+.menu-button {
+    width: 200px;
+    height: 35px;
+    border-radius: 15px;
+    border-color: #39ff14;
+    background-color: #39ff14;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 15px;
+    font-family: 'Audiowide', cursive;
+}
+
+.menu-button:hover {
+    background-color: red;
+    border-color: red;
+    cursor: pointer;
+}
+
+/* ======================*/
+/* Instructions Menu */
+/* ======================*/
+
+#instructions-menu {
+    height: 700px;
+    width: 850px;
+}
+
+#instructions-body {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+#instructions-text-container {
+    position: relative;
+    margin-top: 20px;
+}
+
+#instructions-text {
+    width: 450px;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #39ff14;
+    font-size: 14px;
+    position: absolute;
+    top: 35px;
+    left: 28px;
+    line-height: 1.2; 
+}
+
+#computer-background {
+    width: 500px;
+    height: 500px;
+}
+
+#nick-fury {
+    height: 500px;
+    width: 300px;
+}
+
+/* =====================*/
+/* Scoreboard */
+/* ==================== */
 
 #scoreboard {
     display: flex;
     flex-direction: row;
-    width: 250px;
-    height: 115px;
-    background-color: aqua;
-    text-align: center;
+    justify-content: space-between;
+    width: 800px;
     margin-top: 10px;
 }
 
 .score {
-    margin-left: 20px;
-    font-size: 20px;
-    font-size: 28px;
-    padding-top: 20px;
-    font-family: 'Teko', sans-serif;
-}
-
-#record {
-    margin-top: 20px;
-    width: 250px;
-    height: 115px;
-    background-color: aqua;
-    text-align: center;
     display: flex;
     flex-direction: row;
-}
-
-.wl {
-    margin-left: 50px;
+    background-color: #39ff14;
     font-size: 28px;
-    padding-top: 15px;
-    font-family: 'Teko', sans-serif;
-    
-}
-
-#crystals {
-    margin: auto;
-    margin-top: 20px;
-    width: 520px;
-    margin-top: 10px;
-}
-
-#blue-crystal-image {
-    width: 110px;
-    height: 160px;
-}
-
-#start {
-    width: 100px;
-    height: 35px;
-    background-color: red;
-    margin: auto;
-    text-align: center;
     padding: 10px;
-    font-size: 30px;
-    margin-top: 10px;
-    font-family: 'Audiowide', cursive;
+    border-radius: 15px;
+    border-width: 5px;
+    border-color: #39ff14;
+    font-family: 'Teko', sans-serif;
+}
+
+.number {
+    margin-left: 3px;
+    color: white;
+}
+
+/* =====================*/
+/* Characters */
+/* ==================== */
+
+#avenger-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#avenger-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+#thanos-image {
+    width: 150px;
+    height: 300px;
+}
+
+.hero-image {
+    width: 150px;
+    height: 170px;
+}
+
+.hero-image:hover {
+    cursor: pointer;
 }
 
