@@ -35,15 +35,35 @@ function initializeVariables() {
 
 function gameOver(isWin) {
     if (isWin === true) {
-        console.log("You win: " + damageTotal);
-        alert('You win!')
+        if (wins === 1) {
+            setVisibility('#modal-1', SHOW);
+        } else if (wins === 2) {
+            setVisibility('#modal-2', SHOW);
+        } else if (wins === 3) {
+            setVisibility('#modal-3', SHOW);
+        } else if (wins === 4) {
+            setVisibility('#modal-4', SHOW);
+        } else if (wins === 5) {
+            setVisibility('#modal-5', SHOW);
+        } else {
+            setVisibility('#modal-6', SHOW);
+        }
     } else {
-        console.log("You lose: " + 'total ' + damageTotal + ' target ' + thanosHealth);
-        alert('You Lose :(')
+        if (losses < 10) {
+            setVisibility('#loss-modal', SHOW);
+        } else {
+            setVisibility('#game-over-modal', SHOW);
+        }
     }
     isGameStarted = false
-    setVisibility("#start", SHOW);
-    setVisibility("#game-over-message", SHOW);
+}
+
+function resetWinsAndLosses() {
+    wins = 0;
+    losses = 0;
+    $('#wins-text').text(wins);
+    $('#losses-text').text(losses);
+
 }
 
 function addDamageValueToTotal(damageValue) {
@@ -65,42 +85,100 @@ function addDamageValueToTotal(damageValue) {
     }
 }
 
-$(document).ready(function () {
+function enterAvengersAnimation() {
+    $('.hero-image').addClass('animated fadeInLeft').one('webkitAnimationEnd', function(){
+        $(this).removeClass('animated fadeInLeft');
+    });    
+    $('#thanos-image').addClass('animated fadeInUp delay-1s').one('webkitAnimationEnd', function(){
+        $(this).removeClass('animated fadeInUp delay-1s');
+    });
+}
 
+function attackThanosAnimation(avenger) {
+    $('#thanos-image').addClass('animated shake').one('webkitAnimationEnd', function(){
+        $(this).removeClass('animated shake');
+    });
+    $('#damage-div').addClass('animated flash').one('webkitAnimationEnd', function(){
+        $(this).removeClass('animated flash');
+    });
+    $('#' + avenger + '-image').addClass('animated tada').one('webkitAnimationEnd', function(){
+        $(this).removeClass('animated tada');
+    });
+}
+
+
+$(document).ready(function () {
+    
+    setVisibility('.modal', HIDE);
     setVisibility('#instructions-menu', HIDE);
     setVisibility('#game-screen', HIDE);
 
-    $('#instructions-button').on('click', function () {
+    $(document).on('click', '#instructions-button', function () {
         setVisibility('#game-menu', HIDE);
         setVisibility('#instructions-menu', SHOW);
     });
 
-    $('#back-button').on('click', function () {
+    $(document).on('click', '#menu-back-button', function () {
         setVisibility('#game-menu', SHOW);
         setVisibility('#instructions-menu', HIDE);
     });
 
-    $('#start-button').on('click', function () {
+    $(document).on('click', '#start-button', function () {
         initializeVariables();
+        enterAvengersAnimation();
         setVisibility("#game-menu", HIDE);
         setVisibility("#game-screen", SHOW);
         isGameStarted = true;
     });
 
-    $('#captain-america-image').on('click', function () {
+    // =====================
+    // Modal Buttons
+    // =====================
+
+    $(document).on('click', '#continue', function () {
+        setVisibility('.modal', HIDE);
+        initializeVariables();
+        isGameStarted = true;
+    });
+
+    $(document).on('click', '.play-again', function () {
+        setVisibility('.modal', HIDE);
+        enterAvengersAnimation();
+        initializeVariables();
+        resetWinsAndLosses();
+        isGameStarted = true;
+    });
+
+    $(document).on('click', '#game-over-back-button', function () {
+        setVisibility('#game-menu', SHOW);
+        setVisibility('#instructions-menu', HIDE);
+        setVisibility('#game-screen', HIDE);
+        setVisibility('.modal', HIDE);
+        resetWinsAndLosses();
+    });
+
+    // =====================
+    // Avenger Attacks
+    // =====================
+
+    $(document).on('click', '#captain-america-image', function () {
         addDamageValueToTotal(captainAmericaDamage);
+        attackThanosAnimation('captain-america');
     });
 
-    $('#iron-man-image').on('click', function () {
+    $(document).on('click', '#iron-man-image', function () {
         addDamageValueToTotal(ironmanDamage);
+        attackThanosAnimation('iron-man');
     });
 
-    $('#thor-image').on('click', function () {
+    $(document).on('click', '#thor-image', function () {
         addDamageValueToTotal(thorDamage);
+        attackThanosAnimation('thor');
     });
 
-    $('#hulk-image').on('click', function () {
+    $(document).on('click', '#hulk-image', function () {
         addDamageValueToTotal(hulkDamage);
+        attackThanosAnimation('hulk');
     });
 
 });

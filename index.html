@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Crystal Collector</title>
+    <title>Avengers Infinity Stone Challenge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
@@ -19,11 +19,11 @@
     <div class="big-container">
 
         <div class="menu" id="game-menu">
-            <h1 class="menu-header">Avengers Infinity Stone Challenge</h1>
-            <img id="avengers-logo" src="./assets/images/avengers-logo.png" alt="avengers-logo">
-            <div id="buttons-container">
-                <button class="menu-button" id="instructions-button">Instructions</button>
-                <button class="menu-button" id="start-button">Start</b>
+            <h1 class="menu-header animated fadeInDown">Avengers Infinity Stone Challenge</h1>
+            <img class="animated zoomIn delay-1s" id="avengers-logo" src="./assets/images/avengers-logo.png" alt="avengers-logo">
+            <div class="buttons-container">
+                <button class="menu-button animated fadeInLeft delay-1s" id="instructions-button">Instructions</button>
+                <button class="menu-button animated fadeInRight delay-1s" id="start-button">Start</b>
             </div>
         </div>
 
@@ -34,19 +34,17 @@
                 <div id="instructions-text-container">
                     <img id="computer-background" src="./assets/images/computer-screen.png" alt="computer-background">
                     <div id="instructions-text">
-                        <p>With all five inifinity stones in his possession, Thanos seems unbeatable. However, hope is not lost!</p>
-                        <br>
-                        <p>In order to beat him and return the stones back into to the right hands, we must use all the heros left to attack him from all angles.</p>
+                        <p>In order to defeat Thanos and return the Infinity stones back into to the right hands, we must use all the heros left to attack him from all angles.</p>
                         <br>
                         <p>The four remaining Avengers have the capability of inflicting different amounts of damage. The only way to reclaim each stone, is to inflict the exact amount of damage as Thanos has health.</p>
                         <br>
-                        <p>If you do so, you get one stone back. His health will then reset to a new number. If you inflict too much damage, he'll use the Time Stone to go back to full health.</p>
+                        <p>If you do so, you get one stone back. His health will then reset to a new number. If you inflict too much damage, he'll use the Time Stone to go back to full health. Be careful, if this happens 10 times, he'll have the power to wipe out the remaining Avengers.</p>
                         <br>
                         <p>Once we reclaim all five stones, Thanos will finally be defeated. As the commander, it's YOUR responsibility to tell each Avenger when to attack.</p>
                     </div>
                 </div>
             </div>
-            <button class="menu-button" id="back-button">Back</button>
+            <button class="menu-button" id="menu-back-button">Back</button>
         </div>
 
         <div id="game-screen">
@@ -56,7 +54,7 @@
                     <p id="thanos-health">Thanos Health:</p>
                     <p class="number" id="thanos-health-text">0</p>
                 </div>
-                <div class="score">
+                <div class="score" id="damage-div">
                     <p id="damage-dealt">Damage Dealt:</p>
                     <p class="number" id="total-damage-text">0</p>
                 </div>
@@ -80,8 +78,77 @@
                 <img id="thanos-image" src="assets/images/thanos.png" alt="thanos">
             </div>
 
-        </div>
+            <div class="modal" id="loss-modal">
+                <div class="menu modal-content">
+                    <h1 class="menu-header">You miscalculated your attacks and Thanos countered!</h1>
+                    <img class="thanos-victory" src="./assets/images/thanos-win.png" alt="thanos-victory">
+                    <button class="menu-button" id="continue">Continue the Attack!</button>
+                </div>
+            </div>
 
+            <div class="modal" id="modal-1">
+                <div class="menu modal-content" id="modal-1-red">
+                    <h1 class="menu-header">You weakened Thanos and retrieved the Reality Stone!</h1>
+                    <img class="infinity-stone" src="./assets/images/red-gem.png" alt="red-infinity-stone">
+                    <button class="menu-button" id="continue">Continue the Attack!</button>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-2">
+                <div class="menu modal-content" id="modal-2-orange">
+                    <h1 class="menu-header">You weakened Thanos and retrieved the Soul Stone!</h1>
+                    <img class="infinity-stone" src="./assets/images/orange-gem.png" alt="orange-infinity-stone">
+                    <button class="menu-button" id="continue">Continue the Attack!</button>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-3">
+                <div class="menu modal-content" id="modal-3-purple">
+                    <h1 class="menu-header">You weakened Thanos and retrieved the Power Stone!</h1>
+                    <img class="infinity-stone" src="./assets/images/purple-gem.png" alt="purple-infinity-stone">
+                    <button class="menu-button" id="continue">Continue the Attack!</button>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-4">
+                <div class="menu modal-content" id="modal-4-blue">
+                    <h1 class="menu-header">You weakened Thanos and retrieved the Space Stone!</h1>
+                    <img class="infinity-stone" src="./assets/images/blue-gem.png" alt="blue-infinity-stone">
+                    <button class="menu-button" id="continue">Continue the Attack!</button>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-5">
+                <div class="menu modal-content" id="modal-5-yellow">
+                    <h1 class="menu-header">You weakened Thanos and retrieved the Mind Stone!</h1>
+                    <img class="infinity-stone" src="./assets/images/yellow-gem.png" alt="yellow-infinity-stone">
+                    <button class="menu-button" id="continue">Continue the Attack!</button>
+                </div>
+            </div>
+
+            <div class="modal" id="modal-6">
+                <div class="menu modal-content" id="modal-6-time">
+                    <h1 class="menu-header">You have defeated Thanos and retrieved the final Infinity Stone, the Time Stone!</h1>
+                    <img class="infinity-stone" id="time-stone" src="./assets/images/green-gem.png" alt="green-infinity-stone">
+                    <div class="buttons-container">
+                        <button class="menu-button" id="game-over-back-button">Menu</button>
+                        <button class="menu-button play-again">Play Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="game-over-modal">
+                <div class="menu modal-content">
+                    <h1 class="menu-header">It was a valient effort, but the Avengers have failed at the hands of Thanos.</h1>
+                    <img class="thanos-victory" src="./assets/images/thanos-game-over.jpg" alt="avengers-lose">
+                    <div class="buttons-container">
+                        <button class="menu-button" id="game-over-back-button">Menu</button>
+                        <button class="menu-button play-again">Play Again</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
