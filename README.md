@@ -1,3 +1,5 @@
+<h1> Avengers Infinity Stone Challenge </h1>
+
 With Avengers End Game coming out soon, I felt that creating an Avengers themed game was only right!
 The game involves using your memory and simple math to defeat Thanos.
 
